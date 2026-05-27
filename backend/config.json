@@ -1,0 +1,17 @@
+{
+  "serial": {
+    "port": "AUTO",
+    "baudrate": 115200,
+    "timeout": 1.0
+  },
+  "simulation": {
+    "enabled": true,
+    "fan_on": false,
+    "sampling_interval_sec": 1.0
+  },
+  "scientific": {
+    "baseline_window_sec": 300,
+    "injection_threshold_pct": 1.15,
+    "decay_fit_duration_sec": 120
+  }
+}
