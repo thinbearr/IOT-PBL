@@ -28,7 +28,7 @@ active_websockets: Set[WebSocket] = set()
 data_history: Dict[str, List[Dict[str, Any]]] = {
     "Fully Ventilated": [],
     "Semi-Ventilated": [],
-    "Non-Ventilated": []
+    "Closed": []
 }
 
 HISTORY_LIMIT = 50 # Keep the last 50 readings per house

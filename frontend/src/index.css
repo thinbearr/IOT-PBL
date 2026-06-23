@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&display=swap');
 @import "tailwindcss";
 
 @layer base {
@@ -7,9 +6,10 @@
     box-sizing: border-box;
   }
   body {
-    font-family: 'Inter', sans-serif;
-    background: #050d1a;
-    color: #e2e8f0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    background: #f8fafc;
+    color: #1e293b;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
@@ -19,46 +19,44 @@
     height: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.02);
+    background: rgba(13, 242, 184, 0.02);
   }
   ::-webkit-scrollbar-thumb {
-    background: rgba(99, 179, 237, 0.3);
+    background: rgba(13, 242, 184, 0.2);
     border-radius: 3px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: rgba(99, 179, 237, 0.5);
+    background: rgba(13, 242, 184, 0.4);
+  }
+  h1, h2, h3, h4, .title-font {
+    font-family: 'EB Garamond', serif;
+    font-weight: 600;
   }
 }
 
 @layer components {
   .glass-card {
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.07);
+    background: #ffffff;
+    border: 1px solid rgba(13, 242, 184, 0.2);
     border-radius: 16px;
+    box-shadow: 0 4px 20px -2px rgba(13, 242, 184, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.02);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .glass-card:hover {
+    box-shadow: 0 10px 25px -5px rgba(13, 242, 184, 0.12), 0 4px 10px -2px rgba(13, 242, 184, 0.04);
+    border-color: rgba(13, 242, 184, 0.4);
   }
   .glass-card-bright {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.10);
+    background: #ffffff;
+    border: 1px solid rgba(13, 242, 184, 0.3);
     border-radius: 16px;
+    box-shadow: 0 10px 15px -3px rgba(13, 242, 184, 0.05), 0 4px 6px -2px rgba(13, 242, 184, 0.03);
   }
-  .glow-green {
-    box-shadow: 0 0 20px rgba(52, 211, 153, 0.15), 0 0 40px rgba(52, 211, 153, 0.05);
-  }
-  .glow-yellow {
-    box-shadow: 0 0 20px rgba(251, 191, 36, 0.15), 0 0 40px rgba(251, 191, 36, 0.05);
-  }
-  .glow-red {
-    box-shadow: 0 0 20px rgba(239, 68, 68, 0.15), 0 0 40px rgba(239, 68, 68, 0.05);
-  }
-  .glow-blue {
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.15), 0 0 40px rgba(59, 130, 246, 0.05);
+  .glow-mint {
+    box-shadow: 0 0 25px rgba(13, 242, 184, 0.25), 0 0 50px rgba(13, 242, 184, 0.1);
   }
   .gradient-text {
-    background: linear-gradient(135deg, #63b3ed, #76e4f7, #68d391);
+    background: linear-gradient(135deg, #0f766e, #0d9488, #10b981);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -67,7 +65,8 @@
     animation: pulseRing 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
   }
   .mono {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
   }
   .status-dot {
     width: 8px;
@@ -76,12 +75,11 @@
     animation: statusPulse 2s ease-in-out infinite;
   }
   .btn-glass {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
-    backdrop-filter: blur(10px);
+    background: #ffffff;
+    border: 1px solid rgba(13, 242, 184, 0.35);
     border-radius: 8px;
     padding: 8px 16px;
-    color: #e2e8f0;
+    color: #0f766e;
     font-size: 13px;
     font-weight: 500;
     cursor: pointer;
@@ -89,45 +87,60 @@
     display: flex;
     align-items: center;
     gap: 6px;
+    box-shadow: 0 2px 4px rgba(13, 242, 184, 0.04);
   }
-  .btn-glass:hover {
-    background: rgba(255,255,255,0.1);
-    border-color: rgba(99,179,237,0.4);
-    color: #63b3ed;
+  .btn-glass:hover:not(:disabled) {
+    background: #f0fdf4;
+    border-color: #10b981;
+    color: #0d9488;
+    box-shadow: 0 4px 10px rgba(13, 242, 184, 0.15);
+  }
+  .btn-glass:disabled {
+    background: #f1f5f9;
+    border-color: #cbd5e1;
+    color: #94a3b8;
+    cursor: not-allowed;
+    box-shadow: none;
   }
   .nav-tab {
-    padding: 8px 16px;
+    padding: 10px 16px;
     border-radius: 8px;
-    font-size: 13px;
-    font-weight: 500;
+    font-size: 14px;
+    font-weight: 400;
     cursor: pointer;
     transition: all 0.2s ease;
-    color: #718096;
+    color: #64748b;
     white-space: nowrap;
+    border: 1px solid transparent;
+    border-left: 3px solid transparent;
   }
   .nav-tab.active {
-    background: rgba(99,179,237,0.15);
-    color: #63b3ed;
-    border: 1px solid rgba(99,179,237,0.2);
+    background: rgba(13, 242, 184, 0.08);
+    color: #0f766e;
+    border-left: 3px solid #0df2b8;
+    border-top: 1px solid rgba(13, 242, 184, 0.12);
+    border-bottom: 1px solid rgba(13, 242, 184, 0.12);
+    border-right: 1px solid rgba(13, 242, 184, 0.12);
+    font-weight: 500;
   }
   .nav-tab:hover:not(.active) {
-    color: #a0aec0;
-    background: rgba(255,255,255,0.03);
+    color: #0f766e;
+    background: rgba(13, 242, 184, 0.05);
   }
 }
 
 @keyframes pulseRing {
   0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.05); opacity: 0.7; }
+  50% { transform: scale(1.03); opacity: 0.8; }
 }
 
 @keyframes statusPulse {
   0%, 100% { opacity: 1; box-shadow: 0 0 0 0 currentColor; }
-  50% { opacity: 0.7; box-shadow: 0 0 0 4px transparent; }
+  50% { opacity: 0.6; box-shadow: 0 0 0 4px transparent; }
 }
 
 @keyframes slideUp {
-  from { opacity: 0; transform: translateY(20px); }
+  from { opacity: 0; transform: translateY(12px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
@@ -136,35 +149,63 @@
   to { opacity: 1; }
 }
 
-@keyframes scanLine {
-  0% { top: 0; }
-  100% { top: 100%; }
-}
+.animate-slide-up { animation: slideUp 0.4s ease forwards; }
+.animate-fade-in { animation: fadeIn 0.2s ease forwards; }
 
-.animate-slide-up { animation: slideUp 0.5s ease forwards; }
-.animate-fade-in { animation: fadeIn 0.3s ease forwards; }
-
-/* Grid background */
+/* Mint-cyan futuristic grid background */
 .grid-bg {
-  background-image:
-    linear-gradient(rgba(99,179,237,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(99,179,237,0.03) 1px, transparent 1px);
-  background-size: 40px 40px;
+  background-image: 
+    radial-gradient(circle at 80% 20%, rgba(13, 242, 184, 0.05) 0%, transparent 45%),
+    radial-gradient(circle at 20% 80%, rgba(0, 242, 254, 0.04) 0%, transparent 45%),
+    linear-gradient(rgba(13, 242, 184, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(13, 242, 184, 0.02) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 32px 32px, 32px 32px;
+  background-color: #fbfdfd;
 }
 
-/* Gradient borders */
-.border-gradient {
-  position: relative;
+/* Custom typography weights helper */
+.roboto-thin {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300; /* Make thin text darker for legibility */
 }
-.border-gradient::before {
+.roboto-light {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400; /* Map light to regular weight for strong readability */
+}
+.roboto-regular {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+}
+.roboto-medium {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+}
+
+/* Glass Card with Mint Top Accent */
+.glass-card-accent {
+  position: relative;
+  overflow: hidden;
+}
+.glass-card-accent::before {
   content: '';
   position: absolute;
-  inset: 0;
-  border-radius: 16px;
-  padding: 1px;
-  background: linear-gradient(135deg, rgba(99,179,237,0.3), rgba(118,228,247,0.1), rgba(104,211,145,0.3));
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #0df2b8, #00f2fe);
+  z-index: 10;
+}
+
+.garamond-title-xl {
+  font-family: 'EB Garamond', serif;
+  font-weight: 700;
+  font-size: 2.25rem;
+  letter-spacing: -0.02em;
+}
+
+.garamond-title-lg {
+  font-family: 'EB Garamond', serif;
+  font-weight: 600;
+  font-size: 1.5rem;
 }
